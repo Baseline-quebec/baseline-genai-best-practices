@@ -1,6 +1,6 @@
 # Skills
 
-Skills are reusable, composable units of capability you give to an AI agent or assistant. Think of them as named procedures the model can learn to invoke — somewhere between a tool call and a full agent.
+Skills are reusable, composable units of capability you give to an AI agent or assistant. Think of them as named procedures the model can learn to invoke, somewhere between a tool call and a full agent.
 
 ## Contents
 
@@ -11,7 +11,7 @@ Skills are reusable, composable units of capability you give to an AI agent or a
 - [Connectors](#connectors)
 - [Context Management](#context-management)
 - [Sharing Skills in Teams](#sharing-skills-in-teams)
-- [Library](./library/) — Individual skill definitions ready to use or adapt
+- [Library](./library/): Individual skill definitions ready to use or adapt
 - [Anti-Patterns](#anti-patterns)
 
 ---
@@ -20,10 +20,10 @@ Skills are reusable, composable units of capability you give to an AI agent or a
 
 A **skill** bundles together:
 
-1. A clear **trigger** — when should the model reach for this?
-2. A defined **capability** — what does it do?
-3. **Constraints** — what should it never do?
-4. Optional **examples** — illustrative input/output pairs.
+1. A clear **trigger**: when should the model reach for this?
+2. A defined **capability**: what does it do?
+3. **Constraints**: what should it never do?
+4. Optional **examples**: illustrative input/output pairs.
 
 Skills differ from raw tools: a tool is a function signature; a skill is the intent, behavior, and guardrails that surround it.
 
@@ -49,13 +49,13 @@ Skills load in three levels, from smallest to largest:
 
 | Level | What loads | When |
 |---|---|---|
-| **Frontmatter** | `name` + `description` only | Always — every request |
+| **Frontmatter** | `name` + `description` only | Always, every request |
 | **Skill body** | Full prompt instructions | When the skill is active |
 | **Bundled resources** | Scripts, references, assets | Only when explicitly needed |
 
 This matters for cost and latency. The frontmatter is the only part that's
 always in context, so it must be tight and complete enough to drive triggering.
-The body is in context during active use — keep it under 500 lines. Resources
+The body is in context during active use; keep it under 500 lines. Resources
 are unlimited in size but loaded on demand; scripts can run without being read
 into context at all.
 
@@ -73,7 +73,7 @@ frontmatter. Write it to be specific and slightly forward-leaning:
 
 ✅ "Creates GTM briefs from CRM deal data. Use this skill whenever
     someone mentions a new deal, asks for a brief, or says 'prepare
-    the launch doc' — even if they don't use the word brief."
+    the launch doc' even if they don't use the word brief."
 ```
 
 Under-triggering is a more common failure than over-triggering. Name the exact
@@ -153,10 +153,10 @@ author: team-or-person
 |---|---|
 | `name` | Snake_case identifier, matches the folder and file name |
 | `version` | Start at `v1`; increment when behavior changes meaningfully |
-| `description` | One sentence — used in indexes and search |
+| `description` | One sentence, used in indexes and search |
 | `audience` | Determines naming prefix: `organization` → `shared-` prefix required |
 | `connectors` | Explicit list keeps context weight visible at a glance |
-| `context_weight` | `light` / `moderate` / `heavy` — see [Context Management](#context-management) |
+| `context_weight` | `light` / `moderate` / `heavy`, see [Context Management](#context-management) |
 | `trigger` | Representative phrase(s) that should activate the skill |
 | `author` | Team or person responsible for maintaining the skill |
 
@@ -195,7 +195,7 @@ examples:
 
 ## Connectors
 
-A **connector** is the integration layer between a skill and an external system — an API, database, SaaS platform, or internal service. Where a skill defines *what* and *when*, a connector defines *how to reach the outside world*.
+A **connector** is the integration layer between a skill and an external system: an API, database, SaaS platform, or internal service. Where a skill defines *what* and *when*, a connector defines *how to reach the outside world*.
 
 ### Connectors vs. Skills vs. Tools
 
@@ -211,7 +211,7 @@ A skill often depends on one or more connectors. The connector handles the plumb
 
 **Isolate credentials from skill logic**
 
-Connectors own authentication. Skills never receive raw API keys, tokens, or secrets — they receive a connector handle.
+Connectors own authentication. Skills never receive raw API keys, tokens, or secrets; they receive a connector handle.
 
 ```
 ❌ skill receives: { api_key: "sk-...", endpoint: "https://..." }
@@ -237,7 +237,7 @@ Rate limiting belongs in the connector, not scattered across individual skills. 
 
 **Log at the connector boundary**
 
-Log every outbound request and inbound response at the connector level — method, status, latency, and a redacted payload. This is your audit trail and your first debugging surface.
+Log every outbound request and inbound response at the connector level: method, status, latency, and a redacted payload. This is your audit trail and your first debugging surface.
 
 **Make connectors independently testable**
 
@@ -276,7 +276,7 @@ skills_using_this_connector:
 
 - A skill that constructs HTTP requests directly instead of going through a connector
 - Credentials embedded in skill definitions or prompt templates
-- No timeout on connector calls — one slow upstream will stall the entire agent
+- No timeout on connector calls; one slow upstream will stall the entire agent
 - Connectors that return raw upstream responses without normalizing errors
 - Multiple skills independently implementing retry logic for the same system
 
@@ -284,7 +284,7 @@ skills_using_this_connector:
 
 ## Context Management
 
-Every token in the context window is a cost — in latency, in money, and in model attention. Skills and connectors are primary sources of context bloat when poorly designed. Managing context deliberately is not an optimization; it is a correctness concern.
+Every token in the context window is a cost: in latency, in money, and in model attention. Skills and connectors are primary sources of context bloat when poorly designed. Managing context deliberately is not an optimization; it is a correctness concern.
 
 ### Why Context Bloat Happens
 
@@ -323,7 +323,7 @@ Once a skill's output has been acted on, it no longer needs to live in full in t
 
 **Cap list results at the skill layer**
 
-Never let a skill return an unbounded list. Set a hard `max_results` default and document it. If the user needs more, they should paginate explicitly — not receive 200 items at once.
+Never let a skill return an unbounded list. Set a hard `max_results` default and document it. If the user needs more, they should paginate explicitly, not receive 200 items at once.
 
 ```yaml
 inputs:
@@ -353,7 +353,7 @@ For complex multi-skill agents, assign an explicit token budget per zone:
 
 | Zone | Purpose | Budget guidance |
 |---|---|---|
-| System prompt | Skills, persona, constraints | As small as possible — every token repeats |
+| System prompt | Skills, persona, constraints | As small as possible; every token repeats |
 | Retrieved context | Connector outputs, docs, records | Bounded per turn; summarize across turns |
 | Conversation history | Prior user/assistant turns | Sliding window or summarized beyond N turns |
 | Reasoning scratchpad | Chain-of-thought, plans | Collapse before final response |
@@ -363,10 +363,10 @@ The exact numbers depend on your model and use case, but the discipline of *havi
 ### Red Flags
 
 - Skill output size is not documented or bounded
-- The agent's context grows monotonically — nothing is ever pruned or summarized
+- The agent's context grows monotonically; nothing is ever pruned or summarized
 - Connector responses are passed directly to the model without projection
 - System prompt length increases every sprint as new instructions are added
-- "It gets confused after a few turns" — almost always a context accumulation problem
+- "It gets confused after a few turns": almost always a context accumulation problem
 
 ---
 
@@ -387,12 +387,12 @@ shared-weekly-recap-slack-v1
 ```
 
 - Use `shared-` as a prefix for any skill used across multiple teams
-- Always include a version suffix — it signals that the skill is expected to evolve
+- Always include a version suffix; it signals that the skill is expected to evolve
 - Use snake_case for file and folder names; kebab-case for display names
 
 ### Ownership
 
-Every shared skill must have a named owner — a person or team responsible for keeping it working and up to date.
+Every shared skill must have a named owner: a person or team responsible for keeping it working and up to date.
 
 ```yaml
 author: gtm-team
@@ -404,7 +404,7 @@ Without a named owner, shared skills quietly rot. No one updates the trigger whe
 
 ### Versioning and Evolution
 
-- Start every skill at `v1`. It is a signal, not a judgment — all skills start as drafts.
+- Start every skill at `v1`. It is a signal, not a judgment; all skills start as drafts.
 - Treat the first 5 real-world uses as a calibration period. Expect to revise.
 - When behavior changes meaningfully, increment the version in the frontmatter and file name. Do not silently overwrite `v1`.
 - Keep the previous version in the library until all users have migrated. Deprecate explicitly with a note in the README.
@@ -449,14 +449,14 @@ When a shared skill changes, the author is responsible for notifying users:
 
 ## Anti-Patterns
 
-**Skill sprawl** — dozens of single-use skills with overlapping triggers confuse the model. Consolidate skills that serve the same user intent.
+**Skill sprawl**: dozens of single-use skills with overlapping triggers confuse the model. Consolidate skills that serve the same user intent.
 
-**Missing trigger** — a skill with no trigger condition will be used inconsistently or not at all.
+**Missing trigger**: a skill with no trigger condition will be used inconsistently or not at all.
 
-**Leaking internals** — skills that return raw database rows, internal IDs, or system paths expose implementation details to the user and to the model's context.
+**Leaking internals**: skills that return raw database rows, internal IDs, or system paths expose implementation details to the user and to the model's context.
 
-**Stateful skills** — skills that write to a shared scratchpad or rely on previous skill outputs create hidden dependencies. Prefer passing data explicitly through inputs.
+**Stateful skills**: skills that write to a shared scratchpad or rely on previous skill outputs create hidden dependencies. Prefer passing data explicitly through inputs.
 
-**No failure path** — if the skill can fail (network error, no results, access denied), the model needs explicit instructions for what to do. Without them, it will improvise — poorly.
+**No failure path**: if the skill can fail (network error, no results, access denied), the model needs explicit instructions for what to do. Without them, it will improvise, poorly.
 
-**Overlapping with tools** — a skill that just wraps a single tool call with no additional logic or guardrails adds friction without value. Either use the tool directly or add meaningful constraints.
+**Overlapping with tools**: a skill that just wraps a single tool call with no additional logic or guardrails adds friction without value. Either use the tool directly or add meaningful constraints.

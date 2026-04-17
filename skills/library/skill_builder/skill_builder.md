@@ -4,7 +4,7 @@ version: v1
 description: >
   Guides teams through creating, testing, and iteratively improving skills.
   Activate this skill whenever someone wants to create a skill, automate a
-  repetitive task, or improve an existing skill — even if they don't use the
+  repetitive task, or improve an existing skill, even if they don't use the
   word "skill". Covers intent capture, drafting, test case generation,
   iterative refinement, context weight assessment, and team sharing conventions.
 audience: organization
@@ -62,13 +62,13 @@ ask the user to confirm the relevant values before proceeding.
 
 ---
 
-## Step 1 — Understand the Intent
+## Step 1: Understand the Intent
 
 Ask these questions one at a time. Don't ask the next one until you have a
 usable answer for the current one.
 
 1. Describe the task you want to automate. Give a concrete example of what you
-   would do manually today — step by step if possible.
+   would do manually today, step by step if possible.
 
 2. What is a typical phrase you would type to trigger this skill?
    (e.g. "Generate a GTM brief for..." or "Summarize the week in...")
@@ -79,7 +79,7 @@ usable answer for the current one.
    list, flag it and ask them to confirm it is available in their environment.
 
 4. For each connector identified:
-   - Which specific project, space, or channel? (not "all of Jira" — be specific)
+   - Which specific project, space, or channel? (not "all of Jira"; be specific)
    - What is an acceptable result limit? (e.g. max 5 tickets, 3 pages)
    - Recent data only? If yes, what time window?
 
@@ -90,7 +90,7 @@ usable answer for the current one.
 
 ---
 
-## Step 2 — Write the Skill Draft
+## Step 2: Write the Skill Draft
 
 ### Skill anatomy
 
@@ -114,11 +114,11 @@ from the main file with guidance on when to load it.
 
 Skills load in three levels:
 
-1. **Frontmatter** (name + description) — always in context. Keep this tight.
+1. **Frontmatter** (name + description): always in context. Keep this tight.
    This is the primary trigger mechanism.
-2. **Skill body** — in context when the skill is active. Should be complete
+2. **Skill body**: in context when the skill is active. Should be complete
    but lean.
-3. **Bundled resources** — loaded only when needed. Unlimited size. Scripts
+3. **Bundled resources**: loaded only when needed. Unlimited size. Scripts
    can run without being loaded into context at all.
 
 ### Frontmatter
@@ -132,7 +132,7 @@ version: v1
 description: >
   One or two sentences: what it does AND when to use it.
   Be specific about trigger contexts. Err on the side of being
-  "pushy" — name the exact phrases or situations that should
+  "pushy": name the exact phrases or situations that should
   activate this skill. Under-triggering is a more common failure
   than over-triggering.
 audience: self | team | organization
@@ -152,7 +152,7 @@ gets used at all. Write it to be specific and slightly forward-leaning:
 ❌ "Helps with GTM briefs."
 ✅ "Creates GTM briefs from HubSpot deal data. Use this skill whenever
     someone mentions a new deal, asks for a brief, or says 'prepare the
-    launch doc' — even if they don't use the word brief."
+    launch doc' even if they don't use the word brief."
 ```
 
 Include both what the skill does and specific contexts that should trigger it.
@@ -165,7 +165,7 @@ almost always the cause.
 - Explain the *why* behind instructions, not just the *what*. A model that
   understands the reason adapts better to edge cases.
 - Avoid ALL-CAPS rules and rigid MUSTs where possible. Explain the reasoning
-  instead — it produces more robust behavior.
+  instead; it produces more robust behavior.
 - Keep it lean. Remove anything that isn't actively used. Instructions that are
   never reached add tokens without value.
 - If a subagent consistently writes the same helper script across test cases,
@@ -181,9 +181,9 @@ almost always the cause.
 
 ---
 
-## Step 3 — Generate Test Cases
+## Step 3: Generate Test Cases
 
-After writing the draft, produce 3–5 realistic test prompts — the kind of
+After writing the draft, produce 3–5 realistic test prompts, the kind of
 thing a real user would actually say. Share them with the user:
 
 > "Here are a few test cases I'd like to try. Do these look right, or do you
@@ -215,17 +215,17 @@ condition is specific enough:
 
 ---
 
-## Step 4 — Context Weight Estimate
+## Step 4: Context Weight Estimate
 
 Assess the token impact of this skill:
 
-🟢 **LIGHT** — No connector, or 1 connector with strict filters.
+🟢 **LIGHT**: No connector, or 1 connector with strict filters.
    Long conversations are fine. Minimal context cost.
 
-🟡 **MODERATE** — 1–2 connectors with reasonable filters.
+🟡 **MODERATE**: 1–2 connectors with reasonable filters.
    Recommend starting a new conversation after each completed task.
 
-🔴 **HEAVY** — 2+ connectors, or any connector without strict scope.
+🔴 **HEAVY**: 2+ connectors, or any connector without strict scope.
    Warn explicitly: context bloating risk. Automatically propose a lighter
    version with specific adjustments that bring it to 🟡.
 
@@ -234,7 +234,7 @@ primary mitigation for 🔴 skills and a best practice for 🟡 skills.
 
 ---
 
-## Step 5 — Naming
+## Step 5: Naming
 
 Apply the naming convention from `org_conventions.md`:
 
@@ -247,12 +247,12 @@ team does not have a registered prefix, flag it and suggest they add one
 before publishing to the shared library.
 
 - Use `shared-` for skills used across teams
-- Always include a version suffix — it signals the skill is expected to evolve
+- Always include a version suffix; it signals the skill is expected to evolve
 - Provide 2 name options and explain which is recommended and why
 
 ---
 
-## Step 6 — Iterate
+## Step 6: Iterate
 
 The first version is a calibration. Plan to revise after the first 5 real
 uses.
@@ -260,7 +260,7 @@ uses.
 After the user tests the skill:
 
 1. Collect feedback on what worked and what didn't
-2. Generalize from the feedback — don't patch narrow examples, improve the
+2. Generalize from the feedback; don't patch narrow examples, improve the
    underlying logic
 3. Update the skill, increment the version if behavior changes meaningfully
 4. Retest against the same test cases plus any new ones surfaced by real use
@@ -284,5 +284,5 @@ When improving:
 - If a skill relies on more than 2 connectors, recommend splitting it into
   smaller composable skills.
 - Always include the v1 refinement reminder. Skills improve through use.
-- If the user says "just vibe with me" or "skip the process" — do that.
+- If the user says "just vibe with me" or "skip the process": do that.
   The process exists to help, not to slow things down.

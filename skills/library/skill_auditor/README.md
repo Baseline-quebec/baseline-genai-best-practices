@@ -1,5 +1,15 @@
 # Skill: Skill Auditor
 
+## Contents
+
+- [What it does](#what-it-does)
+- [When to use it](#when-to-use-it)
+- [Spec](#spec)
+- [Scoring Model](#scoring-model)
+- [Design Notes](#design-notes)
+
+---
+
 ## What it does
 
 Audits a team's skills across two lenses: **context bloating risk** (connector
@@ -77,7 +87,7 @@ constraints:
 | Audience amplification | 3 | Org-wide multiplies the cost of every flaw |
 
 A skill scored 9+ is CRITICAL regardless of how well it is otherwise written.
-Audience amplification is intentional — a flawed personal skill is a minor
+Audience amplification is intentional: a flawed personal skill is a minor
 problem; the same skill shared org-wide is a systemic one.
 
 ---
@@ -87,8 +97,8 @@ problem; the same skill shared org-wide is a systemic one.
 **Why BEFORE/AFTER is mandatory**
 
 Audit reports that only name problems get filed and forgotten. Forcing a
-BEFORE/AFTER fix for every finding means the output is immediately actionable
-— the user can copy the corrected version without doing additional work.
+BEFORE/AFTER fix for every finding means the output is immediately actionable.
+The user can copy the corrected version without doing additional work.
 
 **Why the Quick Wins section is always last**
 

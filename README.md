@@ -2,12 +2,14 @@
 
 # baseline-genai-best-practices
 
-**A practical, opinionated guide to building with generative AI — responsibly.**
+**A practical, opinionated guide to building with generative AI, responsibly.**
 
-*From [Baseline](https://baseline.quebec) — a Québec AI cooperative.*
+*From [Baseline](https://baseline.quebec), a Québec AI cooperative.*
 
+[![Version](https://img.shields.io/badge/version-1.0.0-blue.svg)](CHANGELOG.md)
 [![License: CC BY 4.0](https://img.shields.io/badge/License-CC%20BY%204.0-blue.svg)](https://creativecommons.org/licenses/by/4.0/)
 [![Contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg)](CONTRIBUTING.md)
+[![Code of Conduct](https://img.shields.io/badge/code%20of%20conduct-contributor%20covenant-brightgreen.svg)](CODE_OF_CONDUCT.md)
 
 </div>
 
@@ -17,7 +19,7 @@
 
 GenAI is moving fast. Best practices are scattered across blog posts, papers, and internal wikis.
 
-This repo centralizes what actually works — patterns we use, traps we've fallen into, and lessons from building production AI systems with real organizations.
+This repo centralizes what actually works: patterns we use, traps we've fallen into, and lessons from building production AI systems with real organizations.
 
 No hype. No theory for theory's sake. Concrete, actionable, battle-tested.
 
@@ -36,16 +38,16 @@ No hype. No theory for theory's sake. Concrete, actionable, battle-tested.
 
 ## Who this is for
 
-Anyone building with GenAI — developers, product teams, consultants, or curious practitioners. We write for humans, not committees.
+Anyone building with GenAI: developers, product teams, consultants, or curious practitioners. We write for humans, not committees.
 
 ---
 
 ## How to use this repo
 
-- **Browse by section** — each folder has its own README
-- **Use the checklists** — copy them into your workflow
-- **Steal the patterns** — they're meant to be reused
-- **Contribute** — see [CONTRIBUTING.md](./CONTRIBUTING.md)
+- **Browse by section**: each folder has its own README
+- **Use the checklists**: copy them into your workflow
+- **Steal the patterns**: they're meant to be reused
+- **Contribute**: see [CONTRIBUTING.md](./CONTRIBUTING.md)
 
 ---
 
@@ -57,7 +59,7 @@ We welcome pull requests, issue reports, and suggested patterns. Read [CONTRIBUT
 
 ## License
 
-[Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/) — use freely, credit Baseline.
+[Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/). Use freely, credit Baseline.
 
 ---
 

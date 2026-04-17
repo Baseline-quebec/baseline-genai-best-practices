@@ -20,7 +20,7 @@ Thank you for wanting to contribute. This repo is better with real-world experie
 
 ## How to contribute
 
-1. **Open an issue first** for significant additions — confirm it fits before writing
+1. **Open an issue first** for significant additions: confirm it fits before writing
 2. **Fork the repo** and create a branch: `git checkout -b add/your-pattern-name`
 3. **Write your content** following the style guide below
 4. **Open a pull request** with a clear description of what you're adding and why
@@ -29,9 +29,9 @@ Thank you for wanting to contribute. This repo is better with real-world experie
 
 ## Style guide
 
-- Write for a smart practitioner, not a beginner — don't over-explain basics
+- Write for a smart practitioner, not a beginner. Don't over-explain basics.
 - Use real examples, not toy examples
-- Include failure modes and limitations — not just when something works
+- Include failure modes and limitations, not just when something works
 - Keep it model-agnostic unless the pattern is specific to a model family
 - Use sentence case for headings (not Title Case)
 - Code examples should be runnable or clearly pseudocode
@@ -64,6 +64,8 @@ Thank you for wanting to contribute. This repo is better with real-world experie
 - Be direct but respectful
 - Critique ideas, not people
 - We review PRs within 5 business days
+
+See [CODE_OF_CONDUCT.md](./CODE_OF_CONDUCT.md) for the full policy.
 
 ---
 
