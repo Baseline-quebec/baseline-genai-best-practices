@@ -1,6 +1,6 @@
 # Governance & Ethics
 
-Building AI responsibly isn't a blocker — it's a competitive advantage. Organizations that get governance right ship faster, with fewer incidents, and with more stakeholder trust.
+Building AI responsibly isn't a blocker; it's a competitive advantage. Organizations that get governance right ship faster, with fewer incidents, and with more stakeholder trust.
 
 ## Contents
 
@@ -17,9 +17,9 @@ Building AI responsibly isn't a blocker — it's a competitive advantage. Organi
 
 Every model has failure modes. Know them before your users discover them.
 
-- Hallucination rates vary by domain — test in your specific context
-- Models are not up-to-date — build in date awareness or retrieval
-- Performance drops on out-of-distribution inputs — test edge cases
+- Hallucination rates vary by domain; test in your specific context
+- Models are not up-to-date; build in date awareness or retrieval
+- Performance drops on out-of-distribution inputs; test edge cases
 
 ### 2. Keep humans in the loop for high-stakes decisions
 

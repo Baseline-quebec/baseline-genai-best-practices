@@ -1,12 +1,12 @@
 # Agents & Tools
 
-Agentic AI — systems that plan, use tools, and take sequences of actions — is where GenAI gets powerful and where things can go wrong fast.
+Agentic AI (systems that plan, use tools, and take sequences of actions) is where GenAI gets powerful and where things can go wrong fast.
 
 ## Contents
 
 - [Agentic Design Principles](#agentic-design-principles)
-- [Patterns](./patterns/) — Proven agentic architectures
-- [Examples](./examples/) — Annotated real-world implementations
+- [Patterns](./patterns/): Proven agentic architectures
+- [Examples](./examples/): Annotated real-world implementations
 - [Tool Design Guidelines](#tool-design-guidelines)
 
 ---
@@ -29,7 +29,7 @@ Agents should request only the permissions they need, store only what they need,
 
 ### 3. Confirm before consequential actions
 
-For actions with significant side effects — sending emails, modifying data, making purchases — require explicit confirmation.
+For actions with significant side effects (sending emails, modifying data, making purchases), require explicit confirmation.
 
 ### 4. Fail loudly, not silently
 
@@ -56,7 +56,7 @@ def search_knowledge_base(
 ) -> list[SearchResult]: ...
 ```
 
-**Return structured, parseable outputs** — models handle JSON better than free-form text.
+**Return structured, parseable outputs**: models handle JSON better than free-form text.
 
 **Include error states in the schema**
 ```python
@@ -66,9 +66,9 @@ class ToolResult(BaseModel):
     error: str | None
 ```
 
-**Make tools idempotent** — calling the same tool twice should not cause duplicate side effects.
+**Make tools idempotent**: calling the same tool twice should not cause duplicate side effects.
 
-**Rate-limit and timeout every tool** — never let an agent make unlimited calls.
+**Rate-limit and timeout every tool**: never let an agent make unlimited calls.
 
 ---
 

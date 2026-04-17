@@ -5,8 +5,8 @@ Writing good prompts is a craft. This section covers the patterns and principles
 ## Contents
 
 - [Core Principles](#core-principles)
-- [Patterns](./patterns/) — Reusable prompt structures
-- [Examples](./examples/) — Annotated real-world examples
+- [Patterns](./patterns/): Reusable prompt structures
+- [Examples](./examples/): Annotated real-world examples
 - [Anti-Patterns](#anti-patterns)
 
 ---
@@ -15,7 +15,7 @@ Writing good prompts is a craft. This section covers the patterns and principles
 
 ### 1. Be explicit about the output format
 
-Models don't read minds. If you want a JSON object, a bulleted list, or a 3-paragraph essay — say so.
+Models don't read minds. If you want a JSON object, a bulleted list, or a 3-paragraph essay: say so.
 
 ```
 ❌ "Summarize this document."
@@ -48,7 +48,7 @@ Examples:
 Now classify: "Setup took longer than I'd like but the results are solid."
 ```
 
-### 4. Assign a role — but keep it grounded
+### 4. Assign a role, but keep it grounded
 
 ```
 ❌ "You are an all-knowing oracle with infinite wisdom..."

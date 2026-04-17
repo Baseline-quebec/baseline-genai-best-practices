@@ -28,11 +28,11 @@ author: team-or-person
 
 Each `README.md` should cover:
 
-- **What it does** — one-paragraph description
-- **When to use it** — trigger conditions
-- **Skill Prompt** — the full prompt text to paste into your assistant platform
-- **Spec** — full YAML following the [skill specification format](../README.md#skill-specification-format)
-- **Design notes** — non-obvious decisions, tradeoffs, known limitations
+- **What it does**: one-paragraph description
+- **When to use it**: trigger conditions
+- **Skill Prompt**: the full prompt text to paste into your assistant platform
+- **Spec**: full YAML following the [skill specification format](../README.md#skill-specification-format)
+- **Design notes**: non-obvious decisions, tradeoffs, known limitations
 
 ## Index
 

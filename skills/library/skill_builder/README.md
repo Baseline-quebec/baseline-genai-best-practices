@@ -1,5 +1,14 @@
 # Skill: Skill Builder
 
+## Contents
+
+- [What it does](#what-it-does)
+- [When to use it](#when-to-use-it)
+- [Spec](#spec)
+- [Design Notes](#design-notes)
+
+---
+
 ## What it does
 
 A meta-skill that guides teams through the full skill lifecycle: intent capture, drafting, test case generation, iterative refinement, and publishing to the shared library.
@@ -7,7 +16,7 @@ A meta-skill that guides teams through the full skill lifecycle: intent capture,
 Aligned with the Claude Skill Creator pattern but kept platform-agnostic. Key additions over a vanilla skill builder: step-gated information gathering, connector scoping enforcement, a context weight estimate (🟢/🟡/🔴) with automatic lighter-version proposals for heavy skills, and team sharing conventions (naming, versioning, ownership).
 
 **Skill file:** [skill_builder.md](./skill_builder.md)
-**Org conventions:** [resources/references/org_conventions.md](./resources/references/org_conventions.md) — fill this in before using the skill builder with your team
+**Org conventions:** [resources/references/org_conventions.md](./resources/references/org_conventions.md); fill this in before using the skill builder with your team
 
 ---
 
@@ -80,7 +89,7 @@ Asking all questions at once leads to vague or incomplete answers. One question 
 
 **Why context weight is a first-class deliverable**
 
-Most skill quality problems manifest as context bloat after several turns. By making the weight estimate visible at creation time — and by requiring a lighter alternative for 🔴 skills — teams catch the problem before it reaches users.
+Most skill quality problems manifest as context bloat after several turns. By making the weight estimate visible at creation time, and by requiring a lighter alternative for 🔴 skills, teams catch the problem before it reaches users.
 
 **Why the lighter-version proposal is automatic**
 
@@ -88,8 +97,8 @@ If the builder only warns about heavy skills without offering a fix, teams eithe
 
 **Why v1 naming is enforced**
 
-Versioning in the name signals to all users that the skill will change. It also prevents premature stabilization — teams are more willing to iterate a `v1` than something named without a version suffix.
+Versioning in the name signals to all users that the skill will change. It also prevents premature stabilization; teams are more willing to iterate a `v1` than something named without a version suffix.
 
 **Adapting to your platform**
 
-The connector list in Step 1 should be updated to match the tools your organization actually has. Keep the list bounded — offering too many options leads to over-scoped skills.
+The connector list in Step 1 should be updated to match the tools your organization actually has. Keep the list bounded; offering too many options leads to over-scoped skills.
