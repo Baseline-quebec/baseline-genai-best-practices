@@ -30,6 +30,7 @@ No hype. No theory for theory's sake. Concrete, actionable, battle-tested.
 | [Prompt Engineering](./prompt-engineering/) | Patterns, anti-patterns, and annotated examples |
 | [Governance & Ethics](./governance-ethics/) | Frameworks, risk checklists, and compliance guides |
 | [Agents & Tools](./agents-tools/) | Agentic workflow patterns and tool use best practices |
+| [Skills](./skills/) | Designing reusable skill units for agents and assistants |
 
 ---
 
